@@ -1,0 +1,2622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kc Morada San Buenaventura | Portfolio</title>
+
+<meta name="description"
+content="Kc Morada San Buenaventura - Bachelor of Science in Information Technology | Web Developer Portfolio">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --blue: #60a5fa;
+    --light-blue: #eff6ff;
+    --soft-blue: #dbeafe;
+    --dark: #0f172a;
+    --gray: #64748b;
+    --white: #ffffff;
+    --border: rgba(37,99,235,.13);
+    --shadow: 0 20px 50px rgba(37,99,235,.12);
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--dark);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(96,165,250,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(37,99,235,.11),
+            transparent 30%
+        ),
+        #f8fbff;
+
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background .4s ease, color .4s ease;
+}
+
+body.dark {
+    --dark: #f8fafc;
+    --gray: #94a3b8;
+    --white: #0f172a;
+    --border: rgba(148,163,184,.15);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(37,99,235,.22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(30,64,175,.16),
+            transparent 30%
+        ),
+        #020617;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+section {
+    padding: 100px 7%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eaf2ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        #2563eb,
+        #60a5fa
+    );
+    border-radius: 20px;
+}
+
+body.dark ::-webkit-scrollbar-track {
+    background: #020617;
+}
+
+/* NAVIGATION */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px 7%;
+    z-index: 999;
+    transition: .3s;
+}
+
+header.scrolled {
+    background: rgba(255,255,255,.84);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 10px 30px rgba(15,23,42,.08);
+}
+
+body.dark header.scrolled {
+    background: rgba(2,6,23,.84);
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--dark);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+.nav-links a {
+    position: relative;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: #334155;
+
+    transition: .3s;
+}
+
+body.dark .nav-links a {
+    color: #cbd5e1;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--primary);
+
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme-btn,
+.menu-btn {
+    border: none;
+    cursor: pointer;
+}
+
+.theme-btn {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: var(--light-blue);
+    color: var(--primary);
+
+    transition: .3s;
+}
+
+.theme-btn:hover {
+    transform: rotate(15deg) scale(1.05);
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    font-size: 24px;
+    color: var(--dark);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding-top: 130px;
+
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(96,165,250,.12);
+
+    filter: blur(10px);
+
+    top: 15%;
+    right: -100px;
+
+    pointer-events: none;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.hero-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--primary);
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.hero-small::before {
+    content: "";
+
+    width: 35px;
+    height: 2px;
+
+    background: var(--primary);
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(45px, 6vw, 76px);
+
+    line-height: 1.03;
+
+    margin-bottom: 23px;
+
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 620px;
+
+    color: var(--gray);
+
+    font-size: 17px;
+
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 13px 21px;
+
+    border-radius: 12px;
+
+    font-weight: 800;
+
+    transition: .3s;
+}
+
+.btn-primary {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 12px 25px rgba(37,99,235,.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 18px 35px rgba(37,99,235,.32);
+}
+
+.btn-outline {
+    color: var(--primary);
+
+    background: rgba(255,255,255,.7);
+
+    border: 1px solid var(--border);
+}
+
+body.dark .btn-outline {
+    background: #0f172a;
+}
+
+.btn-outline:hover {
+    transform: translateY(-4px);
+    background: var(--light-blue);
+}
+
+/* PROFILE */
+
+.profile-area {
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+}
+
+.profile-card {
+    width: 350px;
+    height: 430px;
+
+    padding: 12px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.96),
+            rgba(219,234,254,.85)
+        );
+
+    box-shadow: var(--shadow);
+
+    transform: rotate(3deg);
+
+    transition: .5s;
+
+    position: relative;
+}
+
+.profile-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -10px;
+
+    border-radius: 35px;
+
+    border: 1px solid rgba(37,99,235,.12);
+
+    z-index: -1;
+}
+
+.profile-card:hover {
+    transform: rotate(0deg) translateY(-10px);
+}
+
+.profile-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 23px;
+}
+
+.floating {
+    position: absolute;
+
+    padding: 13px 17px;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,.91);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,.12);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    animation: float 4s ease-in-out infinite;
+}
+
+body.dark .floating {
+    background: rgba(15,23,42,.9);
+}
+
+.floating.one {
+    top: 35px;
+    left: 0;
+}
+
+.floating.two {
+    right: 0;
+    bottom: 55px;
+
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* SECTION TITLE */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title small {
+    color: var(--primary);
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+}
+
+.section-title h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 44px;
+
+    margin-top: 8px;
+}
+
+.section-title p {
+    max-width: 650px;
+
+    margin: 10px auto 0;
+
+    color: var(--gray);
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 30px;
+
+    margin-bottom: 18px;
+}
+
+.about-text p {
+    color: var(--gray);
+
+    margin-bottom: 15px;
+}
+
+.about-text strong {
+    color: var(--dark);
+}
+
+.about-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+}
+
+.info-card {
+    padding: 22px;
+
+    min-height: 125px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,.78);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.05);
+
+    transition: .35s;
+}
+
+body.dark .info-card {
+    background: #0f172a;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.info-card i {
+    color: var(--primary);
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+.info-card strong {
+    display: block;
+}
+
+.info-card span {
+    color: var(--gray);
+
+    font-size: 14px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 28px 20px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.8);
+
+    border: 1px solid var(--border);
+
+    transition: .35s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+body.dark .skill-card {
+    background: #0f172a;
+}
+
+.skill-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--blue)
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: .35s;
+}
+
+.skill-card:hover::before {
+    transform: scaleX(1);
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+}
+
+.skill-card i {
+    font-size: 35px;
+
+    color: var(--primary);
+
+    margin-bottom: 13px;
+}
+
+.skill-card h3 {
+    margin-bottom: 5px;
+}
+
+.skill-card p {
+    color: var(--gray);
+
+    font-size: 14px;
+}
+
+/* PROJECTS */
+
+.projects {
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(219,234,254,.35),
+            transparent
+        );
+}
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 25px;
+}
+
+.project-card {
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,.92);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.05);
+
+    transition: .4s;
+}
+
+body.dark .project-card {
+    background: #0f172a;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: var(--shadow);
+}
+
+.project-image {
+    height: 210px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.project-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(15,23,42,.22),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .5s;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.07);
+}
+
+.project-content {
+    padding: 24px;
+}
+
+.project-content h3 {
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    color: var(--gray);
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+}
+
+.tag {
+    padding: 6px 10px;
+
+    border-radius: 50px;
+
+    background: var(--light-blue);
+
+    color: var(--primary);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.project-links {
+    display: flex;
+
+    gap: 18px;
+}
+
+.project-links a {
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition: .3s;
+}
+
+.project-links a:hover {
+    transform: translateX(3px);
+}
+
+/* THESIS */
+
+.thesis-box {
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 45px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #ffffff
+        );
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.thesis-box::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(96,165,250,.13);
+
+    right: -70px;
+    bottom: -70px;
+}
+
+body.dark .thesis-box {
+    background: #0f172a;
+}
+
+.thesis-icon {
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 16px;
+
+    background: var(--soft-blue);
+
+    color: var(--primary);
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.thesis-box h3 {
+    font-size: 25px;
+
+    margin-bottom: 13px;
+
+    max-width: 800px;
+}
+
+.thesis-box p {
+    color: var(--gray);
+
+    margin-bottom: 20px;
+
+    max-width: 900px;
+}
+
+.thesis-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+/* EDUCATION */
+
+.education-section {
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(239,246,255,.6),
+            transparent
+        );
+}
+
+.timeline {
+    max-width: 900px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 25px;
+    top: 0;
+
+    width: 3px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--primary),
+            var(--soft-blue)
+        );
+
+    border-radius: 20px;
+}
+
+.timeline-item {
+    position: relative;
+
+    padding-left: 75px;
+
+    margin-bottom: 35px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+
+    left: 10px;
+    top: 5px;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    border: 7px solid var(--soft-blue);
+
+    box-shadow:
+        0 0 0 5px rgba(37,99,235,.05);
+
+    z-index: 2;
+}
+
+.timeline-card {
+    padding: 28px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.9);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.06);
+
+    transition: .35s;
+
+    position: relative;
+}
+
+body.dark .timeline-card {
+    background: #0f172a;
+}
+
+.timeline-card:hover {
+    transform: translateX(6px);
+
+    box-shadow: var(--shadow);
+}
+
+.timeline-card small {
+    display: inline-flex;
+
+    padding: 5px 10px;
+
+    border-radius: 50px;
+
+    background: var(--light-blue);
+
+    color: var(--primary);
+
+    font-weight: 800;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+}
+
+.timeline-card h3 {
+    margin: 12px 0 7px;
+
+    font-size: 21px;
+}
+
+.timeline-school {
+    color: var(--primary);
+
+    font-weight: 800;
+
+    margin-bottom: 9px;
+}
+
+.timeline-card p {
+    color: var(--gray);
+}
+
+.timeline-icon {
+    float: right;
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: var(--light-blue);
+
+    color: var(--primary);
+}
+
+/* CONTACT */
+
+.contact-box {
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 55px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #ffffff
+        );
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+}
+
+body.dark .contact-box {
+    background: #0f172a;
+}
+
+.contact-box h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+
+    margin-bottom: 12px;
+}
+
+.contact-box p {
+    color: var(--gray);
+
+    max-width: 600px;
+
+    margin: 0 auto 25px;
+}
+
+.social-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--primary);
+
+    border: 1px solid var(--border);
+
+    transition: .3s;
+}
+
+body.dark .social-links a {
+    background: #020617;
+}
+
+.social-links a:hover {
+    background: var(--primary);
+
+    color: white;
+
+    transform: translateY(-4px);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 7%;
+
+    text-align: center;
+
+    color: var(--gray);
+
+    border-top: 1px solid var(--border);
+
+    font-size: 14px;
+}
+
+footer span {
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+footer p:first-child {
+    margin-bottom: 4px;
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition: .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-small {
+        justify-content: center;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px) {
+
+    section {
+        padding: 75px 5%;
+    }
+
+    header {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        position: fixed;
+
+        top: 75px;
+        right: -100%;
+
+        width: 270px;
+        height: calc(100vh - 75px);
+
+        background: rgba(255,255,255,.97);
+
+        backdrop-filter: blur(15px);
+
+        flex-direction: column;
+
+        padding: 35px;
+
+        transition: .4s;
+
+        box-shadow:
+            -10px 0 30px rgba(15,23,42,.08);
+    }
+
+    body.dark .nav-links {
+        background: rgba(2,6,23,.97);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .profile-card {
+        width: 280px;
+        height: 350px;
+    }
+
+    .floating.one {
+        left: -5px;
+    }
+
+    .floating.two {
+        right: -5px;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-info {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 36px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .thesis-box,
+    .contact-box {
+        padding: 30px 22px;
+    }
+
+    .contact-box h2 {
+        font-size: 34px;
+    }
+
+    .timeline::before {
+        left: 16px;
+    }
+
+    .timeline-item {
+        padding-left: 50px;
+    }
+
+    .timeline-dot {
+        left: 2px;
+    }
+
+    .timeline-card {
+        padding: 22px;
+    }
+
+    .timeline-icon {
+        display: none;
+    }
+}
+
+@media(max-width:420px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .profile-card {
+        width: 250px;
+        height: 320px;
+    }
+
+    .floating {
+        font-size: 11px;
+        padding: 10px 12px;
+    }
+
+    .floating.one {
+        top: 20px;
+    }
+
+    .floating.two {
+        bottom: 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header id="header">
+
+<nav>
+
+    <a href="#home" class="logo">
+        KC<span>.</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+    <div class="nav-actions">
+
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </div>
+
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+    <div class="reveal">
+
+        <div class="hero-small">
+            HELLO, I'M
+        </div>
+
+        <h1>
+            Kc Morada<br>
+            <span>San Buenaventura.</span>
+        </h1>
+
+        <p class="hero-description">
+
+            I am a Bachelor of Science in Information Technology
+            student and aspiring web developer who enjoys creating
+            websites and web-based systems. I love turning ideas
+            into simple, useful, responsive, and beautiful digital
+            experiences.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn btn-primary">
+
+                <i class="fa-solid fa-code"></i>
+
+                View My Projects
+
+            </a>
+
+            <a
+                href="https://github.com/kayceesan1424"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline"
+            >
+
+                <i class="fa-brands fa-github"></i>
+
+                GitHub
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="profile-area reveal">
+
+        <div class="profile-card">
+
+            <img
+                src="images/profile.jpg"
+                alt="Kc Morada San Buenaventura"
+            >
+
+        </div>
+
+        <div class="floating one">
+            💻 Web Developer
+        </div>
+
+        <div class="floating two">
+            💙 IT Student
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+    <div class="section-title reveal">
+
+        <small>About Me</small>
+
+        <h2>Who I Am</h2>
+
+        <p>
+            A little introduction about me, my education,
+            and my passion for technology.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-text reveal">
+
+            <h3>
+                I enjoy creating websites and systems.
+            </h3>
+
+            <p>
+                My name is
+                <strong>Kc Morada San Buenaventura</strong>,
+                and I am currently pursuing a
+                <strong>Bachelor of Science in Information Technology</strong>.
+            </p>
+
+            <p>
+                I enjoy learning how websites work and creating
+                projects using HTML, CSS, JavaScript, PHP,
+                and MySQL.
+            </p>
+
+            <p>
+                I like creating websites that are simple,
+                organized, responsive, user-friendly,
+                and visually appealing.
+            </p>
+
+            <p>
+                My goal is to continue improving my skills,
+                gain more experience, and become a professional
+                web developer in the future.
+            </p>
+
+        </div>
+
+
+        <div class="about-info reveal">
+
+            <div class="info-card">
+
+                <i class="fa-solid fa-user"></i>
+
+                <strong>Name</strong>
+
+                <span>Kc Morada San Buenaventura</span>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                <strong>Course</strong>
+
+                <span>Bachelor of Science in Information Technology</span>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <i class="fa-solid fa-code"></i>
+
+                <strong>Specialization</strong>
+
+                <span>Web Development</span>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <i class="fa-brands fa-github"></i>
+
+                <strong>GitHub</strong>
+
+                <span>kayceesan1424</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+    <div class="section-title reveal">
+
+        <small>My Skills</small>
+
+        <h2>What I Know</h2>
+
+        <p>
+            Technologies and skills that I use while
+            developing my projects.
+        </p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill-card reveal">
+
+            <i class="fa-brands fa-html5"></i>
+
+            <h3>HTML</h3>
+
+            <p>
+                Creating the structure of websites.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <i class="fa-brands fa-css3-alt"></i>
+
+            <h3>CSS</h3>
+
+            <p>
+                Creating attractive and responsive designs.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <i class="fa-brands fa-js"></i>
+
+            <h3>JavaScript</h3>
+
+            <p>
+                Adding interactive features to websites.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <i class="fa-brands fa-php"></i>
+
+            <h3>PHP</h3>
+
+            <p>
+                Creating dynamic web systems.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <i class="fa-solid fa-database"></i>
+
+            <h3>MySQL</h3>
+
+            <p>
+                Storing and managing system data.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <i class="fa-brands fa-github"></i>
+
+            <h3>GitHub</h3>
+
+            <p>
+                Managing and sharing my projects.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <i class="fa-solid fa-server"></i>
+
+            <h3>XAMPP</h3>
+
+            <p>
+                Running and testing PHP systems locally.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card reveal">
+
+            <i class="fa-solid fa-mobile-screen"></i>
+
+            <h3>Responsive Design</h3>
+
+            <p>
+                Making websites work on different devices.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+
+<div class="container">
+
+    <div class="section-title reveal">
+
+        <small>My Projects</small>
+
+        <h2>Projects I've Created</h2>
+
+        <p>
+            Some of my web development and academic projects.
+        </p>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <!-- EMPLOYEE SYSTEM -->
+
+        <div class="project-card reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="images/employee-system.jpg"
+                    alt="Employee Management System"
+                >
+
+            </div>
+
+            <div class="project-content">
+
+                <h3>
+                    Employee Management System
+                </h3>
+
+                <p>
+                    A web-based system designed to manage
+                    employee information such as employee ID,
+                    names, departments, positions, salary,
+                    hire date, and employment status.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">XAMPP</span>
+
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://github.com/kayceesan1424"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- OCEAN PHOTOBOOTH -->
+
+        <div class="project-card reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="images/photobooth.jpg"
+                    alt="Ocean Dreams Photobooth"
+                >
+
+            </div>
+
+            <div class="project-content">
+
+                <h3>
+                    Ocean Dreams Photobooth
+                </h3>
+
+                <p>
+                    An aesthetic blue-themed photobooth website
+                    where users can capture photos, apply filters,
+                    choose occasion frames, add decorations,
+                    and create photo strips.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Camera API</span>
+
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://github.com/kayceesan1424"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STUDENT MANAGEMENT SYSTEM -->
+
+        <div class="project-card reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="images/student-management-system.jpg"
+                    alt="Student Management System"
+                >
+
+            </div>
+
+            <div class="project-content">
+
+                <h3>
+                    Student Management System
+                </h3>
+
+                <p>
+                    A professional web-based Student Management System 
+                    designed to efficiently manage student records, 
+                    academic information, profiles, and administrative data
+                    through an organized interface.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">XAMPP</span>
+
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://github.com/kayceesan1424"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- KALMJC'S CAFE WEBSITE -->
+
+        <div class="project-card reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="images/kalmjcs-bestcafe.jpg"
+                    alt="KALMJC's Cafe and Sweet Treats Website"
+                >
+
+            </div>
+
+            <div class="project-content">
+
+                <h3>
+                    KALMJC's Cafe and Sweet Treats
+                </h3>
+
+                <p>
+                    A multi-page café website where visitors can
+                    explore the menu, learn about the café and team,
+                    view contact information and branches, and
+                    discover upcoming events.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Responsive Layout</span>
+                    <span class="tag">Web Design</span>
+
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="cafe/home.html"
+                        target="_blank"
+                    >
+
+                    </a>
+
+                    <a
+                        href="https://github.com/kayceesan1424"
+                        target="_blank"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- STUDENT REGISTRATION -->
+
+        <div class="project-card reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="images/student-registration.jpg"
+                    alt="Student Registration"
+                >
+
+            </div>
+
+            <div class="project-content">
+
+                <h3>
+                    Student Registration
+                </h3>
+
+                <p>
+                    A simple student registration system 
+                    for managing student records, including names, 
+                    course, year, block, and address, with easy 
+                    edit and delete actions.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">XAMPP</span>
+
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://github.com/kayceesan1424"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+
+                    </a>
+
+                </div>
+
+    </div>
+
+</div>
+
+ <!-- Anonymous Emoji Wall -->
+
+        <div class="project-card reveal">
+
+            <div class="project-image">
+
+                <img
+                    src="images/emoji-wall.jpg"
+                    alt="Anonymous Emoji Wall"
+                >
+
+            </div>
+
+            <div class="project-content">
+
+                <h3>
+                    Anonymous Emoji Wall
+                </h3>
+
+                <p>
+                    A safe anonymous space where users 
+                    express feelings through emojis, share 
+                    what they're going through, and receive
+                    supportive reactions without revealing their identity.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">XAMPP</span>
+
+                </div>
+
+                    <div class="project-links">
+
+                    <a
+                        href="https://github.com/kayceesan1424"
+                        target="_blank"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+</section>
+
+
+<!-- THESIS -->
+
+<section>
+
+<div class="container">
+
+    <div class="section-title reveal">
+
+        <small>Academic Project</small>
+
+        <h2>Thesis / Capstone Project</h2>
+
+    </div>
+
+
+    <div class="thesis-box reveal">
+
+        <div class="thesis-icon">
+
+            <i class="fa-solid fa-route"></i>
+
+        </div>
+
+        <h3>
+            Web-Based Household Evacuation Management
+            and Intelligent Route Navigation System
+        </h3>
+
+        <p>
+
+            Our project focuses on developing a web-based
+            system for household evacuation management and
+            route navigation for flood and lahar risk zones
+            in Barangay Anoling, Camalig.
+
+        </p>
+
+        <p>
+
+            The system aims to help manage household information,
+            monitor evacuation needs, and provide route information
+            that can help residents find safer evacuation areas
+            during emergencies.
+
+        </p>
+
+        <div class="thesis-tags">
+
+            <span class="tag">Web System</span>
+            <span class="tag">Household Management</span>
+            <span class="tag">Evacuation</span>
+            <span class="tag">Route Navigation</span>
+            <span class="tag">Flood Risk</span>
+            <span class="tag">Lahar Risk</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education" class="education-section">
+
+<div class="container">
+
+    <div class="section-title reveal">
+
+        <small>Education</small>
+
+        <h2>My Educational Journey</h2>
+
+        <p>
+            The schools and academic experiences that
+            helped shape my journey in Information Technology.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <!-- COLLEGE -->
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <small>College</small>
+
+                <h3>
+                    Bachelor of Science in Information Technology
+                </h3>
+
+                <p class="timeline-school">
+                    Computer Communication Development and Institute
+                </p>
+
+                <p>
+                    Currently pursuing my degree in Information
+                    Technology while developing my knowledge in
+                    programming, web development, databases,
+                    system development, and other areas of IT.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SENIOR HIGH SCHOOL -->
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+
+                <small>Senior High School</small>
+
+                <h3>
+                    Computer Programming
+                </h3>
+
+                <p class="timeline-school">
+                    Computer Arts and Technological College
+                </p>
+
+                <p>
+                    Studied Computer Programming and developed
+                    foundational knowledge in computers,
+                    programming, and technology.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- JUNIOR HIGH SCHOOL -->
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+
+                <small>Junior High School</small>
+
+                <h3>
+                    Junior High School
+                </h3>
+
+                <p class="timeline-school">
+                    Dominican School of Camalig
+                </p>
+
+                <p>
+                    Completed my junior high school education
+                    and developed important academic and
+                    personal foundations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ELEMENTARY -->
+
+        <div class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <small>Elementary</small>
+
+                <h3>
+                    Elementary Education
+                </h3>
+
+                <p class="timeline-school">
+                    Cabangan, Camalig, Albay
+                </p>
+
+                <p>
+                    Completed my elementary education and built
+                    the foundational knowledge and learning habits
+                    that supported my academic journey.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+    <div class="contact-box reveal">
+
+        <h2>
+            Let's Connect 💙
+        </h2>
+
+        <p>
+            I am always interested in learning new things,
+            creating projects, and improving my skills in
+            web development and information technology.
+        </p>
+
+        <a
+            href="https://github.com/kayceesan1424"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+        >
+
+            <i class="fa-brands fa-github"></i>
+
+            Visit My GitHub
+
+        </a>
+
+
+        <div class="social-links">
+
+            <a
+                href="https://github.com/kayceesan1424"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+            >
+
+                <i class="fa-brands fa-github"></i>
+
+            </a>
+
+            <a
+                href="mailto:kayceesan3@gmail.com"
+                aria-label="Email"
+            >
+
+                <i class="fa-regular fa-envelope"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+    © <span id="year"></span>
+
+    <strong>Kc Morada San Buenaventura</strong>
+
+    · Bachelor of Science in Information Technology
+
+</p>
+
+<p>
+    Built with 💙 and code.
+</p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* MOBILE MENU */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+    const icon = menuBtn.querySelector("i");
+
+    if (navLinks.classList.contains("active")) {
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+    } else {
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    }
+
+});
+
+
+/* CLOSE MOBILE MENU */
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    });
+
+});
+
+
+/* HEADER SCROLL */
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 40) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* DARK MODE */
+
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    const icon = themeBtn.querySelector("i");
+
+    if (document.body.classList.contains("dark")) {
+
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+
+        localStorage.setItem("portfolioTheme", "dark");
+
+    } else {
+
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+
+        localStorage.setItem("portfolioTheme", "light");
+
+    }
+
+});
+
+
+/* REMEMBER DARK MODE */
+
+if (localStorage.getItem("portfolioTheme") === "dark") {
+
+    document.body.classList.add("dark");
+
+    const icon = themeBtn.querySelector("i");
+
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+
+}
+
+
+/* SCROLL REVEAL */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+
+    revealElements.forEach(element => {
+
+        const top =
+            element.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 80) {
+
+            element.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
+
+
+/* CURRENT YEAR */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* ACTIVE NAVIGATION */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navItems =
+    document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 150;
+
+        const sectionHeight =
+            section.offsetHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navItems.forEach(link => {
+
+        link.style.color = "";
+
+        if (
+            link.getAttribute("href") === "#" + current
+        ) {
+
+            link.style.color = "var(--primary)";
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
